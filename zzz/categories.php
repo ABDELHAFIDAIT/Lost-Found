@@ -13,15 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('f_name',30);
-            $table->string('l_name',30);
-            $table->string('email',50)->unique();
-            $table->string('password');
-            $table->string('phone',15);
-            $table->enum('role', ['user', 'admin'])->default('user');
-            $table->enum('status',['actif','suspendu'])->default('actif');
+            $table->string('nom',50);
             $table->timestamps();
         });
     }
@@ -33,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('categories');
     }
 };
