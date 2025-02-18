@@ -39,8 +39,8 @@
                                 </div>
                                 <input id="email" type="email" name="email" :value="old('email')" required autofocus autocomplete="username"
                                     class="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-0 focus:border-indigo-500 transition-colors input-focus">
-                                <x-input-error :messages="$errors->get('email')" class="mt-2" />
                             </div>
+                            <x-input-error :messages="$errors->get('email')" class="mt-2" />
                         </div>
 
                         <div>
@@ -51,8 +51,8 @@
                                 </div>
                                 <input id="password" type="password" name="password" required autocomplete="current-password"
                                     class="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-0 focus:border-indigo-500 transition-colors input-focus">
-                                <x-input-error :messages="$errors->get('password')" class="mt-2" />
                             </div>
+                            <x-input-error :messages="$errors->get('password')" class="mt-2" />
                         </div>
 
                         <div class="flex items-center justify-between">
