@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('photo');
             $table->date('date');
             $table->string('lieu');
-            $table->enum('status',['accepté','en attente','refusé'])->default('en attente');
+            $table->enum('status',['Accepté','En Attente','Refusé'])->default('Accepté');
+            $table->enum('type',['Perdu','Trouvé']);
             $table->unsignedBigInteger('id_user');
             $table->unsignedBigInteger('id_category');
             $table->foreign('id_category')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
