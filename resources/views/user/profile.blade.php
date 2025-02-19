@@ -53,8 +53,9 @@
                         @foreach ($annonces as $annonce)
 
                             <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
-                                <img src="{{ asset('storage/app/public/' . $annonce->photo) }}" alt="iPhone perdu" class="w-full h-56 object-cover">
+                                <img src="{{ asset('storage/' . $annonce->photo) }}" alt="iPhone perdu" class="w-full h-56 object-cover">
                                 <div class="p-6">
+                                    <h1></h1>
                                     @if($annonce->type == 'Perdu')
                                         <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-600">
                                             <i class="fas fa-exclamation-triangle mr-2"></i> {{ $annonce->type }}

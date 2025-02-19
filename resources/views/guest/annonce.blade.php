@@ -22,7 +22,7 @@
                 <!-- Image Gallery -->
                 <div class="relative">
                     <div class="aspect-w-16 aspect-h-9">
-                        <img src="https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="iPhone 13 Pro" class="w-full h-[400px] object-cover">
+                        <img src="{{asset('storage/' . $annonce->photo)}}" alt="iPhone 13 Pro" class="w-full h-[400px] object-cover">
                     </div>
                     <div class="absolute top-4 left-4">
                         @if($annonce->type =='Perdu')

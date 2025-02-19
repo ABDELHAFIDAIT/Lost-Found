@@ -58,8 +58,8 @@
                     <!-- Image -->
                     <div>                        
                         <label class="block text-sm font-medium text-gray-700 mb-1">Image</label>
-                        <input name="photo" type="file" class="" accept="image/*">
-                        {{-- <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg">
+                        {{-- <input name="photo" type="file" class="" accept="image/*"> --}}
+                        <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg">
                             <div class="space-y-1 text-center">
                                 <div class="flex flex-col items-center">
                                     <i class="fas fa-image text-gray-400 text-3xl mb-3"></i>
@@ -73,7 +73,7 @@
                                 <p class="text-xs text-gray-500">PNG, JPG jusqu'à 5MB</p>
                                 <img id="preview" class="hidden mx-auto mt-4 rounded-lg image-preview">
                             </div>
-                        </div> --}}
+                        </div>
                     </div>
 
                     <!-- Lieu -->

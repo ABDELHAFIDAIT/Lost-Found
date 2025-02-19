@@ -71,7 +71,7 @@
                     
                     <!-- Item Card -->
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
-                        <img src="{{ $annonce->photo }}" alt="iPhone perdu" class="w-full h-56 object-cover">
+                        <img src="{{asset('storage/' . $annonce->photo)}}" alt="iPhone perdu" class="w-full h-56 object-cover">
                         <div class="p-6">
                             @if($annonce->type == 'Perdu')
                                 <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-600">
