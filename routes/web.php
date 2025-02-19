@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AnnonceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,9 +19,8 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/annonces', function () {
-    return view('annonces');
-});
+Route::get('/annonces', [AnnonceController::class, 'index']);
+// Route::get('/annonces', [AnnonceController::class, 'index']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
