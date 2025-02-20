@@ -1,4 +1,4 @@
-@extends('layouts.partials');
+@extends('layouts.partials')
 
 @section('title')
     Lost&Found - Accueil

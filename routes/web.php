@@ -17,11 +17,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('guest.index');
 });
 
 Route::get('/annonces', [AnnonceController::class, 'index']);
-// Route::get('/annonces', [CategoryController::class, 'index']);
+Route::get('/annonce/{id}', [AnnonceController::class, 'get']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

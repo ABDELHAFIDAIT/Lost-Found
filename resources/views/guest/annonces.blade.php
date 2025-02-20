@@ -82,7 +82,10 @@
                                     <i class="fas fa-check-circle mr-2"></i> {{ $annonce->type }}
                                 </span>
                             @endif
-                            <h3 class="mt-3 text-xl font-semibold text-gray-900">{{ $annonce->titre }}</h3>
+                            <div class="flex items-center justify-between">
+                                <h3 class="mt-3 text-xl font-semibold text-gray-900">{{ $annonce->titre }}</h3>
+                                <p class="mt-2 text-xs text-purple-600 underline">{{ $annonce->category->nom }}</p>
+                            </div>
                             <p class="mt-2 text-gray-600">{{ $annonce->lieu }}</p>
                             <div class="mt-4 flex items-center justify-between">
                                 <span class="flex items-center text-sm text-gray-500">

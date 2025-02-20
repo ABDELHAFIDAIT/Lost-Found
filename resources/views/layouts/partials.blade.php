@@ -26,8 +26,11 @@
             background: linear-gradient(45deg, #4f46e5, #7c3aed);
             background-clip: text;
             -webkit-text-fill-color: transparent;
-        }
+        }        
     </style>
+
+    @yield('style')
+    
 </head>
 <body class="bg-gray-50">
     <!-- Navigation -->
@@ -153,6 +156,10 @@
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenu.classList.toggle('hidden');
         }
+    </script>
+
+    <script>
+        @yield('script')
     </script>
 </body>
 </html>
