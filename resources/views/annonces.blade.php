@@ -10,38 +10,62 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div class="bg-white rounded-2xl shadow-xl p-8 bg-gradient-to-br from-indigo-50 via-white to-purple-50">
                 <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">Rechercher un objet</h2>
-                <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
-                    <div class="flex-1">
-                        <div class="relative">
-                            <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
-                            <input type="text" placeholder="Que recherchez-vous ?" 
-                                class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition">
+                <form method="POST" action="" class="flex items-center justify-center gap-5">
+                    <!-- Barre de recherche -->
+                    <div class="relative flex-1">
+                        <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                        <input name="search" type="text" placeholder="Que recherchez-vous ?" 
+                            class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition">
+                    </div>
+
+                    <div class="text-center">
+                        <button name="btn-search" class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-2 rounded-full hover:shadow-lg transition duration-300 transform hover:scale-105">
+                            Rechercher
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Filter Section -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="bg-white rounded-2xl shadow-xl p-8 ">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">Filtrer les Annonce</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Filtres par type -->
+                    <div class="bg-white p-4 rounded-xl border border-gray-200">
+                        <h3 class="font-semibold text-gray-700 mb-3">Type d'annonce</h3>
+                        <div class="space-y-2">
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded" value="Perdu">
+                                <span class="text-gray-700">Objets Perdus</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded" value="Trouvé">
+                                <span class="text-gray-700">Objets Trouvés</span>
+                            </label>
                         </div>
                     </div>
-                    <div class="flex-1">
-                        <div class="relative">
-                            <i class="fas fa-tag absolute left-3 top-3 text-gray-400"></i>
-                            <select class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 appearance-none transition">
-                                <option value="">Sélectionner une catégorie</option>
-                                <option value="electronics">Électronique</option>
-                                <option value="jewelry">Bijoux</option>
-                                <option value="pets">Animaux</option>
-                                <option value="documents">Documents</option>
-                                <option value="other">Autre</option>
-                            </select>
-                            <i class="fas fa-chevron-down absolute right-3 top-3 text-gray-400"></i>
+
+                    <!-- Filtres par catégorie -->
+                    <div class="bg-white p-4 rounded-xl border border-gray-200">
+                        <h3 class="font-semibold text-gray-700 mb-3">Catégories</h3>
+                        <div class="grid grid-cols-2 gap-2">
+                            @foreach ($categories as $category)
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" class="form-checkbox text-indigo-600 rounded" value="{{ $category->id }}">
+                                    <span class="text-gray-700">{{ $category->nom }}</span>
+                                </label>
+                            @endforeach
                         </div>
                     </div>
-                    <button class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-2 rounded-full hover:shadow-lg transition duration-300 transform hover:scale-105">
-                        Rechercher
-                    </button>
                 </div>
             </div>
         </div>
 
-        <!-- Recent Items Grid -->
+        <!-- Items Grid -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">Objets Récents</h2>
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Toutes les Annonces</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 @foreach ($annonces as $annonce)
                     
