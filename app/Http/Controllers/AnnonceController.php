@@ -74,4 +74,30 @@ class AnnonceController extends Controller
         return redirect()->route('user.profile');
     }
 
+
+    public function search(Request $request){
+        $search = $request->input('title'); 
+        $query = Annonce::query();
+
+        if ($request->has('search') && !empty($request->search)) {
+            $query->where(function ($q) use ($request) {
+                $q->where('titre', 'LIKE', '%' . $request->search . '%')
+                  ->orWhere('description', 'LIKE', '%' . $request->search . '%');
+            });
+        }
+    
+        if ($request->has('type') && !empty($request->type)) {
+            $query->whereIn('type', (array) $request->type);
+        }
+    
+        if ($request->has('category') && !empty($request->category)) {
+            $query->whereIn('id_category', (array) $request->category);
+        }
+    
+        $annonces = $query->get();
+        $categories = Category::all();
+    
+        return view('user.search', compact('annonces','categories'));
+    }
+
 }

@@ -20,8 +20,10 @@
                     <div class="flex flex-col items-center -mt-20">
                         <img src="https://raw.githubusercontent.com/ABDELHAFIDAIT/youdemy/refs/heads/main/uploads/user.png" alt="Profile Picture" 
                             class="w-32 h-32 rounded-full border-4 border-white shadow-lg bg-white z-40">
-                        <h1 class="mt-4 text-2xl font-bold">Mohammed Alami</h1>
-                        <p class="text-gray-600">Membre depuis Janvier 2024</p>
+                        <h1 class="mt-4 text-2xl font-bold">{{Auth::user()->f_name}} {{Auth::user()->l_name}}</h1>
+                        <p class="text-gray-600">Membre depuis {{Auth::user()->created_at->format('Y')}}</p>
+                        <a href="tel: {{Auth::user()->phone}}"><p class="text-gray-600">{{Auth::user()->phone}}</p></a>
+                        <a href="mailto: {{Auth::user()->email}}"><p class="text-gray-600">{{Auth::user()->email}}</p></a>
                         <div class="mt-4 flex space-x-4">
                             <div class="text-center">
                                 <div class="text-2xl font-bold text-indigo-600">12</div>

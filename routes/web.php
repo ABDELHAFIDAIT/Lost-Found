@@ -30,6 +30,8 @@ Route::get('/user', function () {
 Route::get('guest/annonces', [AnnonceController::class, 'index']);
 Route::get('guest/annonce/{id}', [AnnonceController::class, 'get']);
 
+Route::post('guest/search', [AnnonceController::class, 'search'])->name('guest.search');
+
 // Route::get('user/annonces', [AnnonceController::class, 'index'])->middleware(['auth','verified']);
 // Route::get('user/annonce/', [AnnonceController::class, 'get'])->middleware(['auth','verified']);
 
@@ -48,6 +50,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/user/annonces', [AnnonceController::class,'index'])->name('user.annonces');
     Route::get('/user/profile', [AnnonceController::class,'annonces'])->name('user.profile');
     Route::post('/user/store', [AnnonceController::class,'store'])->name('user.store');
+    Route::post('/user/search', [AnnonceController::class,'search'])->name('user.search');
     Route::get('/user/create', [CategoryController::class,'index'])->name('user.create');
 });
 
