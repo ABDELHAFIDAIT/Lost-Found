@@ -45,7 +45,7 @@
                 <!-- Tab Content -->
                 <div class="p-6">
                     <div class="flex items-center justify-center p-4 mb-6">
-                        <a href=""><button class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-2 rounded-full hover:shadow-lg transition duration-300 transform hover:scale-105">
+                        <a href="/user/create"><button class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-2 rounded-full hover:shadow-lg transition duration-300 transform hover:scale-105">
                             Publier une Annonce
                         </button></a>
                     </div>
@@ -53,7 +53,7 @@
                         @foreach ($annonces as $annonce)
 
                             <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
-                                <img src="{{ $annonce->photo }}" alt="iPhone perdu" class="w-full h-56 object-cover">
+                                <img src="{{ asset('storage/app/public/' . $annonce->photo) }}" alt="iPhone perdu" class="w-full h-56 object-cover">
                                 <div class="p-6">
                                     @if($annonce->type == 'Perdu')
                                         <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-600">

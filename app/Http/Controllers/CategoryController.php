@@ -8,6 +8,6 @@ class CategoryController extends Controller
 {
     public function index(){
         $categories = Category::all();
-        return view('guest.annonces', ['categories' => $categories]);
+        return view('user.create', ['categories' => $categories]);
     }
 }

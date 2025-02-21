@@ -15,10 +15,10 @@ class Annonce extends Model
         'description',
         'photo',
         'date',
-        'status',
         'type',
-        'user_id',
-        'categorie_id',
+        'id_user',
+        'id_category',
+        'lieu'
     ];
 
 
