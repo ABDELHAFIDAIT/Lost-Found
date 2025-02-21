@@ -91,7 +91,7 @@
                                 <span class="flex items-center text-sm text-gray-500">
                                     <i class="far fa-clock mr-2"></i> {{ $annonce->created_at->diffForHumans() }}
                                 </span>
-                                <a href="/annonce/{{ $annonce->id }}"><button class="text-indigo-600 hover:text-indigo-800 font-medium transition">Voir les détails</button></a>
+                                <a href="/guest/annonce/{{ $annonce->id }}"><button class="text-indigo-600 hover:text-indigo-800 font-medium transition">Voir les détails</button></a>
                             </div>
                         </div>
                     </div>

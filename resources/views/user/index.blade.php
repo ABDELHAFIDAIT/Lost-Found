@@ -1,4 +1,4 @@
-@extends('layouts.partials')
+@extends('layouts.user')
 
 @section('title')
     Lost&Found - Accueil

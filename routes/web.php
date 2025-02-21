@@ -20,8 +20,23 @@ Route::get('/', function () {
     return view('guest.index');
 });
 
-Route::get('/annonces', [AnnonceController::class, 'index']);
-Route::get('/annonce/{id}', [AnnonceController::class, 'get']);
+Route::get('/user', function () {
+    return view('user.index');
+})->middleware(['auth', 'verified']);
+
+Route::get('/user/profile', function () {
+    return view('user.profile');
+})->middleware(['auth', 'verified']);
+
+Route::get('/user/settings', function () {
+    return view('user.settings');
+})->middleware(['auth', 'verified']);
+
+Route::get('guest/annonces', [AnnonceController::class, 'index']);
+Route::get('guest/annonce/{id}', [AnnonceController::class, 'get']);
+
+Route::get('user/annonces', [AnnonceController::class, 'index'])->middleware(['auth','verified']);
+Route::get('user/annonce/{id}', [AnnonceController::class, 'get'])->middleware(['auth','verified']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

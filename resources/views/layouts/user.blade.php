@@ -38,19 +38,32 @@
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
-                    <a href="/" class="flex items-center">
+                    <a href="/user" class="flex items-center">
                         <span class="text-xl font-bold gradient-text">Lost&Found</span>
                     </a>
                 </div>
                 <div class="hidden md:flex items-center space-x-4">
-                    <a href="/" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md transition-colors">Accueil</a>
-                    <a href="/guest/annonces" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md transition-colors">Annonces</a>
-                    <a href="{{ route('login') }}"><button class="text-indigo-600 hover:text-indigo-800 px-3 py-2 rounded-md transition-colors">
-                        Se connecter
-                    </button></a>
-                    <a href="{{ route('register') }}"><button onclick="window.location.href='signup.html'" class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-2 rounded-full hover:shadow-lg transition duration-300 transform hover:scale-105">
-                        S'inscrire
-                    </button></a>
+                    <a href="/user" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md transition-colors">Accueil</a>
+                    <a href="/user/annonces" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md transition-colors">Annonces</a>
+                    <div class="relative group">
+                        <button class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md transition-colors flex items-center">
+                            <img src="https://raw.githubusercontent.com/ABDELHAFIDAIT/youdemy/refs/heads/main/uploads/user.png" alt="Avatar" class="h-8 w-8 rounded-full mr-2">
+                            <i class="fas fa-chevron-down ml-2 text-sm"></i>
+                        </button>
+                        <div class="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg py-2 hidden group-hover:block">
+                            <a href="/user/profile" class="block px-4 py-2 text-gray-800 hover:bg-indigo-50 hover:text-indigo-600">
+                                <i class="fas fa-user mr-2"></i> Profile
+                            </a>
+                            <div class="border-t border-gray-100 my-1"></div>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+
+                                <a :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();" class="block px-4 py-2 text-red-600 hover:bg-red-50">
+                                    <i class="fas fa-sign-out-alt mr-2"></i> Déconnexion
+                                </a>
+                            </form>
+                        </div>
+                    </div>
                 </div>
                 <!-- Mobile menu button -->
                 <div class="md:hidden">
@@ -63,10 +76,12 @@
         <!-- Mobile menu -->
         <div class="md:hidden hidden" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="/" class="block px-3 py-2 text-gray-600 hover:text-indigo-600 rounded-md">Accueil</a>
-                <a href="/guest/annonces" class="block px-3 py-2 text-gray-600 hover:text-indigo-600 rounded-md">Annonces</a>
-                <a href="{{ route('login') }}" class="block px-3 py-2 text-indigo-600 hover:text-indigo-800 rounded-md">Se connecter</a>
-                <a href="{{ route('register') }}" class="block px-3 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-md">S'inscrire</a>
+                <a href="index.html" class="block px-3 py-2 text-gray-600 hover:text-indigo-600 rounded-md">Accueil</a>
+                <a href="#" class="block px-3 py-2 text-gray-600 hover:text-indigo-600 rounded-md">Objets Perdus</a>
+                <a href="#" class="block px-3 py-2 text-gray-600 hover:text-indigo-600 rounded-md">Objets Trouvés</a>
+                <a href="profile.html" class="block px-3 py-2 text-gray-600 hover:text-indigo-600 rounded-md">Mon Profil</a>
+                <a href="#" class="block px-3 py-2 text-gray-600 hover:text-indigo-600 rounded-md">Paramètres</a>
+                <a href="index.html" class="block px-3 py-2 text-red-600 hover:bg-red-50 rounded-md">Déconnexion</a>
             </div>
         </div>
     </nav>
