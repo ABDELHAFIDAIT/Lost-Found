@@ -11,7 +11,7 @@
             <!-- Profile Header -->
             <div class="bg-white rounded-2xl shadow-lg overflow-hidden mb-6">
                 <div class="relative h-48 bg-gradient-to-r from-indigo-600 to-purple-600 z-auto">
-                    <a href="/user/settings"><button class="absolute top-4 right-4 bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-lg hover:bg-white/30 transition-colors">
+                    <a href="/profile"><button class="absolute top-4 right-4 bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-lg hover:bg-white/30 transition-colors">
                         <i class="fas fa-edit mr-2"></i>
                         Modifier le profil
                     </button></a>
