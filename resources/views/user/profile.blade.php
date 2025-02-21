@@ -42,128 +42,43 @@
 
             <!-- Profile Content -->
             <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
-                <!-- Tabs -->
-                <div class="border-b">
-                    <div class="flex">
-                        <button class="px-6 py-4 text-sm font-medium tab-active">
-                            Mes Annonces
-                        </button>
-                        <button class="px-6 py-4 text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors">
-                            Paramètres
-                        </button>
-                        <button class="px-6 py-4 text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors">
-                            Notifications
-                        </button>
-                    </div>
-                </div>
-
                 <!-- Tab Content -->
                 <div class="p-6">
-                    <!-- Filters -->
-                    <div class="flex flex-wrap gap-4 mb-6">
-                        <button class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
-                            Tous (12)
-                        </button>
-                        <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors">
-                            Objets Perdus (5)
-                        </button>
-                        <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors">
-                            Objets Trouvés (7)
-                        </button>
+                    <div class="flex items-center justify-center p-4 mb-6">
+                        <a href=""><button class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-2 rounded-full hover:shadow-lg transition duration-300 transform hover:scale-105">
+                            Publier une Annonce
+                        </button></a>
                     </div>
-
-                    <!-- Announcements Grid -->
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <!-- Announcement Card 1 -->
-                        <div class="bg-white rounded-xl border shadow-sm overflow-hidden hover:shadow-lg transition duration-300">
-                            <img src="https://i.imgur.com/xJDPGEk.jpg" alt="iPhone" class="w-full h-48 object-cover">
-                            <div class="p-4">
-                                <div class="flex justify-between items-start mb-2">
-                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-600">
-                                        <i class="fas fa-search-location mr-2"></i> Perdu
-                                    </span>
-                                    <div class="flex space-x-2">
-                                        <button class="text-gray-400 hover:text-indigo-600 transition-colors">
-                                            <i class="fas fa-edit"></i>
-                                        </button>
-                                        <button class="text-gray-400 hover:text-red-600 transition-colors">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
+                        @foreach ($annonces as $annonce)
+
+                            <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                                <img src="{{ $annonce->photo }}" alt="iPhone perdu" class="w-full h-56 object-cover">
+                                <div class="p-6">
+                                    @if($annonce->type == 'Perdu')
+                                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-600">
+                                            <i class="fas fa-exclamation-triangle mr-2"></i> {{ $annonce->type }}
+                                        </span>
+                                    @else
+                                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-600">
+                                            <i class="fas fa-check-circle mr-2"></i> {{ $annonce->type }}
+                                        </span>
+                                    @endif
+                                    <div class="flex items-center justify-between">
+                                        <h3 class="mt-3 text-xl font-semibold text-gray-900">{{ $annonce->titre }}</h3>
+                                        <p class="mt-2 text-xs text-purple-600 underline">{{ $annonce->category->nom }}</p>
+                                    </div>
+                                    <p class="mt-2 text-gray-600">{{ $annonce->lieu }}</p>
+                                    <div class="mt-4 flex items-center justify-between">
+                                        <span class="flex items-center text-sm text-gray-500">
+                                            <i class="far fa-clock mr-2"></i> {{ $annonce->created_at->diffForHumans() }}
+                                        </span>
+                                        <a href="/guest/annonce/{{ $annonce->id }}"><button class="text-indigo-600 hover:text-indigo-800 font-medium transition">Voir les détails</button></a>
                                     </div>
                                 </div>
-                                <h3 class="text-lg font-semibold">iPhone 13 Pro</h3>
-                                <p class="text-gray-600 text-sm mb-2">Perdu près du Parc Central</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-sm text-gray-500">Il y a 2 jours</span>
-                                    <a href="item-details.html" class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">
-                                        Voir les détails
-                                    </a>
-                                </div>
                             </div>
-                        </div>
-
-                        <!-- Announcement Card 2 -->
-                        <div class="bg-white rounded-xl border shadow-sm overflow-hidden hover:shadow-lg transition duration-300">
-                            <img src="https://i.imgur.com/YQkqZZG.jpg" alt="Ring" class="w-full h-48 object-cover">
-                            <div class="p-4">
-                                <div class="flex justify-between items-start mb-2">
-                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-600">
-                                        <i class="fas fa-hand-holding-heart mr-2"></i> Trouvé
-                                    </span>
-                                    <div class="flex space-x-2">
-                                        <button class="text-gray-400 hover:text-indigo-600 transition-colors">
-                                            <i class="fas fa-edit"></i>
-                                        </button>
-                                        <button class="text-gray-400 hover:text-red-600 transition-colors">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <h3 class="text-lg font-semibold">Bague en Or</h3>
-                                <p class="text-gray-600 text-sm mb-2">Trouvée au Café du Centre</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-sm text-gray-500">Il y a 5 jours</span>
-                                    <a href="item-details.html" class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">
-                                        Voir les détails
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Announcement Card 3 -->
-                        <div class="bg-white rounded-xl border shadow-sm overflow-hidden hover:shadow-lg transition duration-300">
-                            <img src="https://i.imgur.com/L3lNpqF.jpg" alt="Backpack" class="w-full h-48 object-cover">
-                            <div class="p-4">
-                                <div class="flex justify-between items-start mb-2">
-                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-600">
-                                        <i class="fas fa-search-location mr-2"></i> Perdu
-                                    </span>
-                                    <div class="flex space-x-2">
-                                        <button class="text-gray-400 hover:text-indigo-600 transition-colors">
-                                            <i class="fas fa-edit"></i>
-                                        </button>
-                                        <button class="text-gray-400 hover:text-red-600 transition-colors">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <h3 class="text-lg font-semibold">Sac à dos noir</h3>
-                                <p class="text-gray-600 text-sm mb-2">Perdu dans le Bus 42</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-sm text-gray-500">Il y a 1 semaine</span>
-                                    <a href="item-details.html" class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">
-                                        Voir les détails
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Load More Button -->
-                    <div class="text-center mt-8">
-                        <button class="px-6 py-3 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 transition-colors">
-                            Charger plus d'annonces
-                        </button>
+                        
+                        @endforeach
                     </div>
                 </div>
             </div>

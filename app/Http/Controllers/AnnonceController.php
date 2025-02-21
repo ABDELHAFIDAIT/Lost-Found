@@ -30,5 +30,14 @@ class AnnonceController extends Controller
             return view('user.annonce', compact('annonce'));
         }
     }
+
+    public function annonces()
+    {
+        $annonces = Annonce::with('user', 'category')
+        ->where('id_user', auth()->id())
+        ->get();
+
+        return view('user.profile', compact('annonces'));
+    }
     
 }

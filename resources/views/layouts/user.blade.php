@@ -51,7 +51,7 @@
                             <i class="fas fa-chevron-down ml-2 text-sm"></i>
                         </button>
                         <div class="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg py-2 hidden group-hover:block">
-                            <a href="/user/profile" class="block px-4 py-2 text-gray-800 hover:bg-indigo-50 hover:text-indigo-600">
+                            <a href="/user/profile/" class="block px-4 py-2 text-gray-800 hover:bg-indigo-50 hover:text-indigo-600">
                                 <i class="fas fa-user mr-2"></i> Profile
                             </a>
                             <div class="border-t border-gray-100 my-1"></div>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AnnonceController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,19 +25,13 @@ Route::get('/user', function () {
     return view('user.index');
 })->middleware(['auth', 'verified']);
 
-Route::get('/user/profile', function () {
-    return view('user.profile');
-})->middleware(['auth', 'verified']);
-
-Route::get('/user/settings', function () {
-    return view('user.settings');
-})->middleware(['auth', 'verified']);
+Route::get('/user/profile/', [AnnonceController::class,'annonces']);
 
 Route::get('guest/annonces', [AnnonceController::class, 'index']);
 Route::get('guest/annonce/{id}', [AnnonceController::class, 'get']);
 
 Route::get('user/annonces', [AnnonceController::class, 'index'])->middleware(['auth','verified']);
-Route::get('user/annonce/{id}', [AnnonceController::class, 'get'])->middleware(['auth','verified']);
+Route::get('user/annonce/', [AnnonceController::class, 'get'])->middleware(['auth','verified']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
