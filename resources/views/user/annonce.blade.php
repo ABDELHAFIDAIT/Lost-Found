@@ -132,14 +132,16 @@
             @auth()
             <div class="bg-white px-12 py-6 mb-8">
                 <h2 class="text-2xl font-bold mb-6">Ajouter un commentaire</h2>
-                <form class="space-y-4">
+                <form method="POST" action="{{ route('user.comment') }}" class="space-y-4">
+                    @csrf
                     <div>
-                        <textarea 
+                        <textarea name="comment"
                             class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition resize-none"
                             rows="4"
                             placeholder="Écrivez votre commentaire ici..."
                         ></textarea>
                     </div>
+                    <input type="hidden" name="id_annonce" value="{{ $annonce->id }}">
                     <div class="flex justify-end">
                         <button type="submit" class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-2 rounded-full hover:shadow-lg transition duration-300 transform hover:scale-105">
                             Publier le commentaire

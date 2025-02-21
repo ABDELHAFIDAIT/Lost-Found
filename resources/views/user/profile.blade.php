@@ -78,6 +78,15 @@
                                         </span>
                                         <a href="/guest/annonce/{{ $annonce->id }}"><button class="text-indigo-600 hover:text-indigo-800 font-medium transition">Voir les détails</button></a>
                                     </div>
+                                    <form action="{{ route('user.destroy',$annonce->id) }}" method="POST" onsubmit="return confirm('Voulez-Vous Vraiment Supprimer cet Annonce ?');" class="mt-5">
+                                        @csrf
+                                        @method('DELETE')
+                                        {{-- <input type="hidden" name="id_annonce" value="{{ $annonce->id }}"> --}}
+
+                                        <button type="submit" class="py-2 w-full bg-red-600 outline-none rounded-md text-white text-sm">
+                                            Supprimer
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         

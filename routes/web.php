@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AnnonceController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +32,7 @@ Route::get('guest/annonces', [AnnonceController::class, 'index']);
 Route::get('guest/annonce/{id}', [AnnonceController::class, 'get']);
 
 Route::post('guest/search', [AnnonceController::class, 'search'])->name('guest.search');
+Route::post('guest/search', [CommentController::class, 'store'])->name('guest.comment');
 
 // Route::get('user/annonces', [AnnonceController::class, 'index'])->middleware(['auth','verified']);
 // Route::get('user/annonce/', [AnnonceController::class, 'get'])->middleware(['auth','verified']);
@@ -51,7 +53,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/user/profile', [AnnonceController::class,'annonces'])->name('user.profile');
     Route::post('/user/store', [AnnonceController::class,'store'])->name('user.store');
     Route::post('/user/search', [AnnonceController::class,'search'])->name('user.search');
+    Route::post('/user/comment', [CommentController::class,'store'])->name('user.comment');
     Route::get('/user/create', [CategoryController::class,'index'])->name('user.create');
+    Route::delete('/user/delete/{id}', [AnnonceController::class, 'destroy'])->name('user.destroy');
 });
 
 require __DIR__.'/auth.php';

@@ -100,4 +100,13 @@ class AnnonceController extends Controller
         return view('user.search', compact('annonces','categories'));
     }
 
+
+    public function destroy($id){
+        $annonce = Annonce::find($id);
+
+        $annonce->delete();
+
+        return redirect()->back();
+    }
+
 }
